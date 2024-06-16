@@ -23,7 +23,21 @@ namespace BookStoreManagement.Pages
         public MainMenuPage()
         {
             InitializeComponent();
-            Console.WriteLine("MainManu is created.");
+        }
+
+        private void EnterOrderMenu(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Enter Order Menu");
+        }
+
+        private void EnterCustomersMenu(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Enter Customers Menu");
+        }
+
+        private void EnterBooksMenu(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Enter Books Menu");
         }
     }
 }

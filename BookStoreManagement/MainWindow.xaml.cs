@@ -25,14 +25,18 @@ namespace BookStoreManagement
         {
             InitializeComponent();
             Instance = this;
-            this.currentPage = new LoginPage();
-            MainContent.Content = currentPage.Content;
+            ChangePage(new LoginPage());
         }
 
         public void ChangePage(Page page)
         {
             CurrentPage = page;
             MainContent.Content = currentPage.Content;
+        }
+
+        public void Logout()
+        {
+            ChangePage(new LoginPage());
         }
 
         public Page CurrentPage { get => currentPage; set => currentPage = value; }

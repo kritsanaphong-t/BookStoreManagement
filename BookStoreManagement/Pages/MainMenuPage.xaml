@@ -13,11 +13,12 @@
                         HorizontalAlignment="Center"
                         Margin="0,0">
         <!--#region Customers Button-->
-        <Border Background="#C1202D"
+            <Border Background="#C1202D"
                     CornerRadius="15"
                     Width="272" Height="110"
-                    Margin="0,0,0,100">
-            <Grid HorizontalAlignment="Center">
+                    Margin="0,0,0,100"
+                    MouseUp="EnterCustomersMenu">
+                <Grid HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -36,11 +37,12 @@
         <!--#endregion-->
 
         <!--#region Books Button-->
-        <Border Background="#C1202D"
+            <Border Background="#C1202D"
                     CornerRadius="15"
                     Width="272" Height="110"
-                    Margin="0,0,0,100">
-            <Grid HorizontalAlignment="Center">
+                    Margin="0,0,0,100"
+                    MouseUp="EnterBooksMenu">
+                <Grid HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -59,26 +61,28 @@
         <!--#endregion-->
 
         <!--#region Orders Button-->
-        <Border Background="#C1202D"
-        CornerRadius="15"
-        Width="272" Height="110">
-            <Grid HorizontalAlignment="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Image Source="/Images/OrderIcon.png" 
-               Height="51"
-               Margin="10,0"/>
-                <TextBlock Text="Order"
-                   Grid.Column="1"
-                   FontFamily="Roboto"
-                   FontSize="28"
-                   Foreground="#EEEEEE"
-                   VerticalAlignment="Center"/>
-            </Grid>
-        </Border>
-        <!--#endregion-->
-    </StackPanel>
+            <Border Background="#C1202D"
+                    CornerRadius="15"
+                    Width="272" Height="110"
+                    MouseUp="EnterOrderMenu">
+                <Grid HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="/Images/OrderIcon.png" 
+                           Height="51"
+                           Margin="10,0"/>
+                    <TextBlock Text="Order"
+                               Grid.Column="1"
+                               FontFamily="Roboto"
+                               FontSize="28"
+                               Foreground="#EEEEEE"
+                               VerticalAlignment="Center"/>
+                </Grid>
+            </Border>
+            <!--#endregion-->
+
+        </StackPanel>
     </ContentControl>
 </Page>
