@@ -4,6 +4,23 @@
              xmlns:local="clr-namespace:BookStoreManagement"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="StoreButton" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#EEEEEE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="8">
+                            <ContentPresenter VerticalAlignment="Center" 
+                                              HorizontalAlignment="Center" 
+                                              Content="{TemplateBinding Content}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
