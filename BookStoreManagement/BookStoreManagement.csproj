@@ -10,7 +10,11 @@
 
   <ItemGroup>
     <None Remove="Images\Background.png" />
+    <None Remove="Images\BooksIcon.png" />
     <None Remove="Images\BookStoreLogo.png" />
+    <None Remove="Images\CustomersIcon.png" />
+    <None Remove="Images\LogoutIcon.png" />
+    <None Remove="Images\OrderIcon.png" />
     <None Remove="Images\PasswordIcon.png" />
     <None Remove="Images\UsernameIcon.png" />
   </ItemGroup>
@@ -19,7 +23,19 @@
     <Resource Include="Images\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\BooksIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\BookStoreLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CustomersIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\LogoutIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\OrderIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\PasswordIcon.png">

@@ -19,12 +19,22 @@ namespace BookStoreManagement
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static Page? CurrentPage;
+        public static MainWindow? Instance;
+        private Page currentPage;
         public MainWindow()
         {
             InitializeComponent();
-            CurrentPage = new LoginPage();
-            this.DataContext = CurrentPage;
+            Instance = this;
+            this.currentPage = new LoginPage();
+            MainContent.Content = currentPage.Content;
         }
+
+        public void ChangePage(Page page)
+        {
+            CurrentPage = page;
+            MainContent.Content = currentPage.Content;
+        }
+
+        public Page CurrentPage { get => currentPage; set => currentPage = value; }
     }
 }

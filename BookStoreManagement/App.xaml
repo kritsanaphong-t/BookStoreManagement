@@ -22,5 +22,42 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="NavigationBar" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        <Grid Background="#121212">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Background="#1B1B1B">
+                                <TextBlock FontFamily="Sigmar One"
+                   FontWeight="Bold"
+                   FontSize="48"
+                   Foreground="#C1202D"
+                   Margin="54,0"
+                   VerticalAlignment="Center">BOOK<Span Foreground="#EEEEEE">STORE</Span></TextBlock>
+                                <StackPanel HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                                    <Image Source="/Images/UsernameIcon.png"
+                   Height="40"/>
+                                    <TextBlock Text="Username"
+                       FontFamily="Roboto"
+                       FontSize="20"
+                       Foreground="#EEEEEE"
+                       VerticalAlignment="Center"/>
+                                    <Image Source="/Images/LogoutIcon.png"
+                   Height="40"
+                   Margin="40,0"/>
+                                </StackPanel>
+                            </Grid>
+                            <ContentPresenter Grid.Row="1"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
