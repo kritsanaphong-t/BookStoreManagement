@@ -1,4 +1,4 @@
-﻿<Window x:Class="BookStoreManagement.Windows.EditCustomer"
+﻿<Window x:Class="BookStoreManagement.Windows.EditCustomerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BookStoreManagement.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="EditCustomer" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize">
-    <Border CornerRadius="15" Background="#282828">
+        Title="EditCustomer" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
+    <Border CornerRadius="15" Background="#282828" MouseDown="Grid_MouseDown">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
@@ -32,16 +32,22 @@
                 <StackPanel Grid.Column="1">
                     <TextBlock Margin="0,0,0,32" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE">Customer ID : <TextBlock>630610714</TextBlock></TextBlock>
                     <StackPanel Margin="0,0,0,32">
-                        <TextBlock Text="Name" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE"/>
-                        <TextBox Style="{StaticResource StoreTextBox}" Width="261" Height="42" HorizontalAlignment="Left" Background="#B2EDEDED"/>
+                        <TextBlock x:Name="Show" Text="Name" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE"/>
+                        <Border HorizontalAlignment="Left" CornerRadius="12" Background="#B2EDEDED" Width="261" Height="42">
+                            <TextBox Margin="5,0" BorderThickness="0" Text="{Binding Name}"  FontSize="20" VerticalContentAlignment="Center" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,32">
                         <TextBlock Text="Address" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE"/>
-                        <TextBox Style="{StaticResource StoreTextBox}" Width="261" Height="42" HorizontalAlignment="Left" Background="#B2EDEDED"/>
+                        <Border HorizontalAlignment="Left" CornerRadius="12" Background="#B2EDEDED" Width="261" Height="42">
+                            <TextBox Margin="5,0" BorderThickness="0" Text="{Binding Address}"  FontSize="20" VerticalContentAlignment="Center" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,32">
                         <TextBlock Text="Email" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE"/>
-                        <TextBox Style="{StaticResource StoreTextBox}" Width="261" Height="42" HorizontalAlignment="Left" Background="#B2EDEDED"/>
+                        <Border HorizontalAlignment="Left" CornerRadius="12" Background="#B2EDEDED" Width="261" Height="42">
+                            <TextBox Margin="5,0" BorderThickness="0" Text="{Binding Email}"  FontSize="20" VerticalContentAlignment="Center" Background="Transparent"/>
+                        </Border>
                     </StackPanel>
                 </StackPanel>
             </Grid>
@@ -50,8 +56,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button FontSize="28" Height="64" Width="168" Background="Transparent" Foreground="#C1202D" Content="Cancel" Style="{StaticResource SaveButton}"/>
-                <Button FontSize="28" Height="64" Width="168" Background="#C1202D" Content="Save"  Style="{StaticResource StoreButton}" Grid.Column="1"/>
+                <Button Click="Cancel" FontSize="28" Height="64" Width="168" Background="Transparent" Foreground="#C1202D" Content="Cancel" Style="{StaticResource SaveButton}"/>
+                <Button Click="Save" FontSize="28" Height="64" Width="168" Background="#C1202D" Content="Save"  Style="{StaticResource StoreButton}" Grid.Column="1"/>
             </Grid>
         </Grid>
     </Border>

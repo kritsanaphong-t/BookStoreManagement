@@ -51,11 +51,13 @@
         </Style>
 
         <Style x:Key="StoreTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="CaretBrush" Value="#111111"/>
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Border CornerRadius="12" Background="{TemplateBinding Background}">
-                            <ContentPresenter/>
+                            <TextBox Margin="5,0" BorderThickness="0" Text="{TemplateBinding Text}" Background="Transparent" FontFamily="Roboto" FontSize="{TemplateBinding FontSize}" VerticalContentAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>

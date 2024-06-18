@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookStoreManagement.Model;
+using BookStoreManagement.Windows;
 
 namespace BookStoreManagement.Pages
 {
@@ -35,7 +36,10 @@ namespace BookStoreManagement.Pages
 
         private void EditCustomer(object sender, RoutedEventArgs e)
         {
-            
+            Button button = (Button)sender;
+            Customer customer = (Customer)button.DataContext;
+            EditCustomerWindow editCustomerWindow = new EditCustomerWindow(customer);
+            editCustomerWindow.ShowDialog();
         }
 
         private void DeleteCustomer(object sender, RoutedEventArgs e)

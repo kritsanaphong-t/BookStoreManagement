@@ -42,5 +42,23 @@ namespace BookStoreManagement.Model
                 new Customer() { Id = "1005", Name = "James Wilson", Address = "890 Maple Lane, Suburbia, USA, USA", Email = "james.wilson@example.com" }
             };
         }
+
+        public Customer Clone()
+        {
+            Customer customer = new Customer();
+            customer.Id = Id;
+            customer.Name = Name;
+            customer.Address = Address;
+            customer.Email = Email;
+            return customer;
+        }
+
+        public void Copy(Customer customer)
+        {
+            this.Id = customer.Id;
+            this.Name = customer.Name;
+            this.Address = customer.Address;
+            this.Email = customer.Email;
+        }
     }
 }
