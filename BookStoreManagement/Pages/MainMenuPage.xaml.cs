@@ -32,7 +32,7 @@ namespace BookStoreManagement.Pages
 
         private void EnterCustomersMenu(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Enter Customers Menu");
+            MainWindow.Instance.ChangePage(new CustomersPage());
         }
 
         private void EnterBooksMenu(object sender, MouseButtonEventArgs e)

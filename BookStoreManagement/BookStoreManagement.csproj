@@ -9,17 +9,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\AddCustomerIcon.png" />
     <None Remove="Images\Background.png" />
     <None Remove="Images\BooksIcon.png" />
     <None Remove="Images\BookStoreLogo.png" />
+    <None Remove="Images\CustomerProfileIcon.png" />
     <None Remove="Images\CustomersIcon.png" />
     <None Remove="Images\LogoutIcon.png" />
     <None Remove="Images\OrderIcon.png" />
     <None Remove="Images\PasswordIcon.png" />
+    <None Remove="Images\SearchIcon.png" />
     <None Remove="Images\UsernameIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddCustomerIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -27,6 +37,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\BookStoreLogo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\CustomerProfileIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\CustomersIcon.png">
@@ -39,6 +52,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\PasswordIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SearchIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\UsernameIcon.png">
