@@ -1,0 +1,19 @@
+﻿<Window x:Class="BookStoreManagement.Windows.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStoreManagement.Windows"
+        mc:Ignorable="d"
+        Title="DialogWindow" Height="256" Width="502" Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Border Background="#222222" CornerRadius="20">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"> 
+            <TextBlock Text="{Binding Text}" FontFamily="Roboto" FontSize="28" Foreground="#EEEEEE" Margin="0,0,0,32" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Cursor="Hand" Margin="0,0,24,0" Click="Cancel"  BorderBrush="#C1202D" BorderThickness="2" FontFamily="Roboto" FontSize="20" Foreground="#C1202D" Background="Transparent" Height="68" Width="163" Content="Cancel" Style="{StaticResource SaveButton}"/>
+                <Button Cursor="Hand" Click="Confirm" BorderBrush="#C1202D" BorderThickness="0" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE" Background="#C1202D" Height="68" Width="163" Content="Yes" Style="{StaticResource SaveButton}" Grid.Column="1"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Border>
+</Window>

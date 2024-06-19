@@ -12,7 +12,7 @@
         <Grid Background="#111111">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Images/CustomerProfileIcon.png" 
@@ -39,14 +39,17 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Image Source="/Images/SearchIcon.png" Margin="10,0" Height="24"/>
-                            <TextBlock Text="Search by Customer ID, Name, Email"
+                            <TextBlock x:Name="SearchHint"
+                                       Text="Search by Customer ID, Name, Email"
                                        VerticalAlignment="Center"
                                        FontFamily="Roboto"
                                        FontSize="16"
-                                       Grid.Column="1"/>
+                                       Grid.Column="1"
+                                       Opacity="0.5"/>
+                            <TextBox x:Name="SearchTxt" Foreground="Black" VerticalContentAlignment="Center" FontFamily="Roboto" FontSize="16" Grid.Column="1" Background="Transparent" BorderThickness="0" TextChanged="SearchChanged"/>
                         </Grid>
                     </Border>
-                    <Border Background="#C1202D" CornerRadius="15" Grid.Column="1" Margin="24,0,0,0">
+                    <Border Background="#C1202D" CornerRadius="15" Grid.Column="1" Margin="24,0,0,0" MouseUp="AddCustomer" Cursor="Hand">
                         <Grid Margin="13,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
@@ -59,18 +62,18 @@
                 </Grid>
                 <DataGrid ItemsSource="{Binding}" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="customerGrid" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Customer ID" IsReadOnly="True" CanUserResize="False" Width="*" Binding="{Binding Id}"/>
-                        <DataGridTextColumn Header="Name" IsReadOnly="True" CanUserResize="False" Width="2*" Binding="{Binding Name}"/>
-                        <DataGridTextColumn Header="Address" IsReadOnly="True" CanUserResize="False" Width="3*" Binding="{Binding Address}"/>
-                        <DataGridTextColumn Header="Email" IsReadOnly="True" CanUserResize="False" Width="2*" Binding="{Binding Email}"/>
-                        <DataGridTemplateColumn Header=" " IsReadOnly="True" CanUserResize="False" Width="auto">
+                        <DataGridTextColumn Header="ID" IsReadOnly="True" CanUserResize="False" Binding="{Binding Id}"/>
+                        <DataGridTextColumn Header="Name" IsReadOnly="True" CanUserResize="False" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Address" IsReadOnly="True" CanUserResize="False" Binding="{Binding Address}"/>
+                        <DataGridTextColumn Header="Email" IsReadOnly="True" CanUserResize="False" Binding="{Binding Email}"/>
+                        <DataGridTemplateColumn Header=" " IsReadOnly="True" CanUserResize="False">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Margin="24,0">
-                                        <Button Click="EditCustomer" Style="{StaticResource IconButton}" Margin="0,0,10,0">
+                                        <Button Click="EditCustomer" Style="{StaticResource IconButton}" Margin="0,0,10,0" Width="24" Height="24" Cursor="Hand">
                                             <iconPacks:PackIconMaterial Width="24" Height="24" Kind="Pencil" Foreground="#EDEDED"/>
                                         </Button>
-                                        <Button Click="DeleteCustomer" Style="{StaticResource IconButton}">
+                                        <Button Click="DeleteCustomer" Style="{StaticResource IconButton}"  Width="24" Height="24" Cursor="Hand">
                                             <iconPacks:PackIconMaterial Width="24" Height="24" Kind="TrashCan" Foreground="#8C030E"/>
                                         </Button>
                                     </StackPanel>

@@ -25,12 +25,12 @@ namespace BookStoreManagement.Pages
     public partial class CustomersPage : Page
     {
         public ObservableCollection<Customer> Customers { get ; set; }
+        private ObservableCollection<Customer> originalCustomers;
 
         public CustomersPage()
         {
-            Customers = Customer.GetCustomers();
-       
             InitializeComponent();
+            Customers = originalCustomers = new ObservableCollection<Customer>(DataAccess.GetCustomers());
             customerGrid.ItemsSource = Customers;
         }
 
@@ -39,14 +39,49 @@ namespace BookStoreManagement.Pages
             Button button = (Button)sender;
             Customer customer = (Customer)button.DataContext;
             EditCustomerWindow editCustomerWindow = new EditCustomerWindow(customer);
-            editCustomerWindow.ShowDialog();
+            bool? isEdited = editCustomerWindow.ShowDialog();
+            if (isEdited == true) FetchCustomer();
         }
 
         private void DeleteCustomer(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             Customer customer = (Customer)button.DataContext;
-            Customers.Remove(customer);
+            DialogWindow dialogWindow = new DialogWindow("Are you sure to delete customer data?");
+            bool? isDelete = dialogWindow.ShowDialog();
+            if (isDelete == true) Customers.Remove(customer);
+        }
+
+        private void AddCustomer(object sender, MouseButtonEventArgs e)
+        {
+            AddCustomerWindow addCustomerWindow = new AddCustomerWindow();
+            bool? isAdded = addCustomerWindow.ShowDialog();
+            if (isAdded == true) FetchCustomer();
+        }
+
+        private void FetchCustomer()
+        {
+            Customers = new ObservableCollection<Customer>(DataAccess.GetCustomers());
+            customerGrid.ItemsSource = Customers;
+        }
+
+        private void SearchChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTxt.Text.Length > 0)
+            {
+                SearchHint.Visibility = Visibility.Hidden;
+                int id = 0;
+                string name = SearchTxt.Text;
+                string email = SearchTxt.Text;
+                int.TryParse(SearchTxt.Text, out id);
+                Customers = new ObservableCollection<Customer>(DataAccess.GetCustomers(id, name, email));
+                customerGrid.ItemsSource = Customers;
+            }
+            else
+            {
+                SearchHint.Visibility = Visibility.Visible;
+                FetchCustomer();
+            }
         }
     }
 }

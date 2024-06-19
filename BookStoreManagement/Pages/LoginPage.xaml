@@ -95,11 +95,12 @@
 
             <!--#region login button-->
             <Button Style="{StaticResource StoreButton}"
-                Content="Login"
-                Width="272" Height="42"
-                Background="#C1202D" 
-                IsDefault="True" 
-                    Click="Login"/>
+                    Content="Login"
+                    Width="272" Height="42"
+                    Background="#C1202D" 
+                    IsDefault="True" 
+                    Click="Login"
+                    Cursor="Hand"/>
             <!--#endregion-->
         </StackPanel>
     </Grid>

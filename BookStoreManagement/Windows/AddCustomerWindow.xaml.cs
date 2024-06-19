@@ -16,17 +16,15 @@ using System.Windows.Shapes;
 namespace BookStoreManagement.Windows
 {
     /// <summary>
-    /// Interaction logic for EditCustomer.xaml
+    /// Interaction logic for AddCustomerWindow.xaml
     /// </summary>
-    public partial class EditCustomerWindow : Window
+    public partial class AddCustomerWindow : Window
     {
         Customer customer;
-
-        public EditCustomerWindow(Customer customer)
+        public AddCustomerWindow()
         {
-            this.customer = customer.Clone();
             InitializeComponent();
-            this.DataContext = this.customer;
+            this.DataContext = this.customer = new Customer();
         }
 
         private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
@@ -42,7 +40,7 @@ namespace BookStoreManagement.Windows
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            DataAccess.UpdateCustomer(customer);
+            DataAccess.AddCustomer(this.customer);
             DialogResult = true;
             this.Close();
         }

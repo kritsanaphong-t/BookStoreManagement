@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookStoreManagement;
+using BookStoreManagement.Model;
 
 namespace BookStoreManagement.Pages
 {
@@ -55,7 +56,11 @@ namespace BookStoreManagement.Pages
         {
             if (usernameTxt.Text == "admin" && passwordTxt.Password == "123")
             {
-                if (MainWindow.Instance != null) MainWindow.Instance.ChangePage(new MainMenuPage());
+                if (MainWindow.Instance != null)
+                {
+                    DataAccess.InitializeDatabase();
+                    MainWindow.Instance.ChangePage(new MainMenuPage());
+                }
             }
             else
             {

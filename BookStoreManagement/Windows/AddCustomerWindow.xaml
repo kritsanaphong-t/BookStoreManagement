@@ -1,4 +1,4 @@
-﻿<Window x:Class="BookStoreManagement.Windows.EditCustomerWindow"
+﻿<Window x:Class="BookStoreManagement.Windows.AddCustomerWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookStoreManagement.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="EditCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
+        Title="AddCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
     <Border CornerRadius="15" Background="#282828" MouseDown="Grid_MouseDown">
         <Grid>
             <Grid.RowDefinitions>
@@ -20,8 +20,8 @@
                     <ColumnDefinition Width="5*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Edit Customer Data" FontFamily="Roboto" FontSize="28" Foreground="#EDEDED" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom"/>
-                <iconPacks:PackIconMaterial Kind="AccountEdit" Foreground="#EDEDED" VerticalAlignment="Bottom" Height="50" Width="50" HorizontalAlignment="Right"/>
+                <TextBlock Text="Add Customer Data" FontFamily="Roboto" FontSize="28" Foreground="#EDEDED" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom"/>
+                <iconPacks:PackIconMaterial Kind="AccountPlus" Foreground="#EDEDED" VerticalAlignment="Bottom" Height="50" Width="50" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
@@ -30,7 +30,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1">
-                    <TextBlock Margin="0,0,0,32" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE">Customer ID : <TextBlock Text="{Binding Id}"/></TextBlock>
+                    <TextBlock Margin="0,0,0,32" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE" Visibility="Hidden">Customer ID : <TextBlock>630610714</TextBlock></TextBlock>
                     <StackPanel Margin="0,0,0,32">
                         <TextBlock x:Name="Show" Text="Name" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE"/>
                         <Border HorizontalAlignment="Left" CornerRadius="12" Background="#B2EDEDED" Width="261" Height="42">

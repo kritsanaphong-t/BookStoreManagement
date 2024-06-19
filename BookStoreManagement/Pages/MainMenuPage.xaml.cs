@@ -32,7 +32,7 @@ namespace BookStoreManagement.Pages
 
         private void EnterCustomersMenu(object sender, MouseButtonEventArgs e)
         {
-            MainWindow.Instance.ChangePage(new CustomersPage());
+            if (MainWindow.Instance != null) MainWindow.Instance.ChangePage(new CustomersPage());
         }
 
         private void EnterBooksMenu(object sender, MouseButtonEventArgs e)
