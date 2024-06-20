@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BookStoreManagement.Model;
 
 namespace BookStoreManagement.Windows
 {
@@ -19,9 +20,30 @@ namespace BookStoreManagement.Windows
     /// </summary>
     public partial class AddBookWindow : Window
     {
+        Book book;
+
         public AddBookWindow()
         {
             InitializeComponent();
+            this.DataContext = this.book = new Book();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left) this.DragMove();
+        }
+
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            this.Close();
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            DataAccess.AddBook(this.book);
+            DialogResult = true;
+            this.Close();
         }
     }
 }

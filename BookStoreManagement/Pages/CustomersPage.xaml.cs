@@ -39,7 +39,7 @@ namespace BookStoreManagement.Pages
             Customer customer = (Customer)button.DataContext;
             EditCustomerWindow editCustomerWindow = new EditCustomerWindow(customer);
             bool? isEdited = editCustomerWindow.ShowDialog();
-            if (isEdited == true) FetchCustomer();
+            if (isEdited == true) FetchCustomers();
         }
 
         private void DeleteCustomer(object sender, RoutedEventArgs e)
@@ -51,7 +51,7 @@ namespace BookStoreManagement.Pages
             if (isDelete == true)
             {
                 DataAccess.DeleteCustomer(customer);
-                FetchCustomer();
+                FetchCustomers();
             }
         }
 
@@ -59,10 +59,10 @@ namespace BookStoreManagement.Pages
         {
             AddCustomerWindow addCustomerWindow = new AddCustomerWindow();
             bool? isAdded = addCustomerWindow.ShowDialog();
-            if (isAdded == true) FetchCustomer();
+            if (isAdded == true) FetchCustomers();
         }
 
-        private void FetchCustomer()
+        private void FetchCustomers()
         {
             Customers = new ObservableCollection<Customer>(DataAccess.GetCustomers());
             customerGrid.ItemsSource = Customers;
@@ -83,7 +83,7 @@ namespace BookStoreManagement.Pages
             else
             {
                 SearchHint.Visibility = Visibility.Visible;
-                FetchCustomer();
+                FetchCustomers();
             }
         }
     }

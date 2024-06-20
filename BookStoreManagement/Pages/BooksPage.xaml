@@ -77,7 +77,8 @@
                             Grid.Column="1"
                             Margin="24,0,0,0"
                             Cursor="Hand"
-                            Width="172">
+                            Width="172"
+                            MouseUp="AddBook">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />

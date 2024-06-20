@@ -37,10 +37,17 @@ namespace BookStoreManagement.Pages
             Book book = (Book)button.DataContext;
             EditBookWindow editBookWindow = new EditBookWindow(book);
             bool? isEdited = editBookWindow.ShowDialog();
-            if (isEdited == true) FetchBook();
+            if (isEdited == true) FetchBooks();
         }
 
-        private void FetchBook()
+        private void AddBook(object sender, MouseButtonEventArgs e)
+        {
+            AddBookWindow addBookWindow = new AddBookWindow();
+            bool? isAdded = addBookWindow.ShowDialog();
+            if (isAdded == true) FetchBooks();
+        }
+
+        private void FetchBooks()
         {
             Books = new ObservableCollection<Book>(DataAccess.GetBooks());
             bookGrid.ItemsSource = Books;
