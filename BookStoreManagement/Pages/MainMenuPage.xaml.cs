@@ -37,7 +37,7 @@ namespace BookStoreManagement.Pages
 
         private void EnterBooksMenu(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Enter Books Menu");
+            if (MainWindow.Instance != null) MainWindow.Instance.ChangePage(new BooksPage());
         }
     }
 }
