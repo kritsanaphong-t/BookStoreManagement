@@ -18,16 +18,43 @@ namespace BookStoreManagement.Model
                new SqliteConnection($"Filename=bookStoreManagement.db"))
             {
                 db.Open();
-                String tableCommand = "CREATE TABLE IF NOT " +
+
+                #region Create Customers Table
+                String customersTableCommand = "CREATE TABLE IF NOT " +
                     "EXISTS Customers (Customer_Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "Customer_Name VARCHAR(100) NULL," +
                     "Address VARCHAR(255) NULL," +
                     "Email VARCHAR(100) NULL)";
-                SqliteCommand createTable = new SqliteCommand(tableCommand, db);
-                createTable.ExecuteReader();
+                SqliteCommand createCustomersTable = new SqliteCommand(customersTableCommand, db);
+                createCustomersTable.ExecuteReader();
+                #endregion
+
+                #region Create Books Table
+                String booksTableCommand = "CREATE TABLE IF NOT " +
+                    "EXISTS Books (ISBN VARCHAR(20) PRIMARY KEY, " +
+                    "Title VARCHAR(255) NOT NULL," +
+                    "Description TEXT NULL," +
+                    "Price DECIMAL(10,2) NULL)";
+                SqliteCommand createBooksTable = new SqliteCommand(booksTableCommand, db);
+                createBooksTable.ExecuteReader();
+                #endregion
+
+                #region Create Transactions Table
+                String transactionsTableCommand = "CREATE TABLE IF NOT " +
+                    "EXISTS Transactions (Transaction_Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "ISBN VARCHAR(20), " +
+                    "Customer_Id INTEGER, " +
+                    "Quantity INTEGER, " +
+                    "Total_Price DECIMAL(10, 2), " +
+                    "FOREIGN KEY (ISBN) REFERENCES Books(ISBN), " +
+                    "FOREIGN KEY (Customer_Id) REFERENCES Customers(Customer_Id))";
+                SqliteCommand createTransactionsTable = new SqliteCommand(transactionsTableCommand, db);
+                createTransactionsTable.ExecuteReader();
+                #endregion
             }
         }
 
+        #region Customer
         public async static void AddCustomer(Customer customer)
         {
             await using (SqliteConnection db =
@@ -131,5 +158,8 @@ namespace BookStoreManagement.Model
                 db.Close();
             }
         }
+        #endregion
+
+        
     }
 }
