@@ -261,7 +261,7 @@ namespace BookStoreManagement.Model
                 SqliteCommand insertCommand = new SqliteCommand();
                 insertCommand.Connection = db;
                 // Use parameterized query to prevent SQL injection attacks
-                insertCommand.CommandText = "DELETE FROM Customers WHERE ISBN = @ISBN";
+                insertCommand.CommandText = "DELETE FROM Books WHERE ISBN = @ISBN";
                 insertCommand.Parameters.AddWithValue("@ISBN", book.Isbn);
                 insertCommand.ExecuteReader();
                 db.Close();

@@ -40,6 +40,19 @@ namespace BookStoreManagement.Pages
             if (isEdited == true) FetchBooks();
         }
 
+        private void DeleteBook(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Book book = (Book)button.DataContext;
+            DialogWindow dialogWindow = new DialogWindow("Are you sure to delete this book?");
+            bool? isDelete = dialogWindow.ShowDialog();
+            if (isDelete == true)
+            {
+                DataAccess.DeleteBook(book);
+                FetchBooks();
+            }
+        }
+
         private void AddBook(object sender, MouseButtonEventArgs e)
         {
             AddBookWindow addBookWindow = new AddBookWindow();

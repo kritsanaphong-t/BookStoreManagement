@@ -130,6 +130,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal"
                                                 Margin="24,0">
+                                        <!-- Edit Button -->
                                         <Button Style="{StaticResource IconButton}"
                                                 Margin="0,0,10,0"
                                                 Width="24"
@@ -141,10 +142,12 @@
                                                                            Height="24"
                                                                            Foreground="#EDEDED" />
                                         </Button>
+                                        <!-- Delete Button -->
                                         <Button Style="{StaticResource IconButton}"
                                                 Width="24"
                                                 Height="24"
-                                                Cursor="Hand">
+                                                Cursor="Hand"
+                                                Click="DeleteBook">
                                             <iconPacks:PackIconFontAwesome Kind="TrashCanSolid"
                                                                            Width="24"
                                                                            Height="24"
