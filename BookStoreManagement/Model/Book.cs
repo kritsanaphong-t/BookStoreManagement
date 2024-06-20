@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BookStoreManagement.Model
 {
-    internal class Book : INotifyPropertyChanged
+    public class Book : INotifyPropertyChanged
     {
         private string isbn = "";
         private string title = "";
@@ -19,6 +19,11 @@ namespace BookStoreManagement.Model
         public string Title { get => title; set { title = value; RaisePropertyChanged(); } }
         public string Description { get => description; set { description = value; RaisePropertyChanged(); } }
         public float Price { get => price; set { price = value; RaisePropertyChanged(); } }
+
+        public Book Clone()
+        {
+            return new Book() { isbn = isbn, title = title, description = description, price = price };
+        }
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

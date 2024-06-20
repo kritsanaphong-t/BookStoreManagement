@@ -25,12 +25,11 @@ namespace BookStoreManagement.Pages
     public partial class CustomersPage : Page
     {
         public ObservableCollection<Customer> Customers { get ; set; }
-        private ObservableCollection<Customer> originalCustomers;
 
         public CustomersPage()
         {
             InitializeComponent();
-            Customers = originalCustomers = new ObservableCollection<Customer>(DataAccess.GetCustomers());
+            Customers = new ObservableCollection<Customer>(DataAccess.GetCustomers());
             customerGrid.ItemsSource = Customers;
         }
 

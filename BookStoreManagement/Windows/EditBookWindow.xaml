@@ -1,4 +1,4 @@
-﻿<Window x:Class="BookStoreManagement.Windows.EditCustomerWindow"
+﻿<Window x:Class="BookStoreManagement.Windows.EditBookWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:BookStoreManagement.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="EditCustomerWindow"
+        Title="EditBookWindow"
         Height="578"
-        Width="420"
-        WindowStyle="None"
-        ResizeMode="NoResize"
+        Width="400"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen">
+        WindowStyle="None">
     <Border CornerRadius="15"
-            Background="#282828"
-            MouseDown="Grid_MouseDown">
+            Background="#282828">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*" />
@@ -25,18 +22,19 @@
             </Grid.RowDefinitions>
             <StackPanel Margin="32"
                         Orientation="Horizontal">
-                <iconPacks:PackIconFontAwesome Kind="UserPenSolid"
-                                               Foreground="#EDEDED"
-                                               VerticalAlignment="Bottom"
-                                               Height="50"
-                                               Width="50"
-                                               Margin="0,0,8,0"/>
-                <TextBlock Text="Edit Customer"
+                <Image Source="/Images/EditBookIcon.png"
+                       VerticalAlignment="Bottom"
+                       Height="40"
+                       Width="40"
+                       Margin="0,0,8,0"
+                       RenderOptions.BitmapScalingMode="Fant"/>
+                <TextBlock Text="Edit Book"
                            FontFamily="Roboto"
                            FontSize="28"
                            Foreground="#EDEDED"
                            VerticalAlignment="Bottom" />
             </StackPanel>
+
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -44,13 +42,8 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="1">
-                    <TextBlock Margin="0,0,0,32"
-                               FontFamily="Roboto"
-                               FontSize="20"
-                               Foreground="#EEEEEE">Customer ID : <TextBlock Text="{Binding Id}" /></TextBlock>
                     <StackPanel Margin="0,0,0,32">
-                        <TextBlock x:Name="Show"
-                                   Text="Name"
+                        <TextBlock Text="ISBN"
                                    FontFamily="Roboto"
                                    FontSize="20"
                                    Foreground="#EEEEEE" />
@@ -61,14 +54,14 @@
                                 Height="42">
                             <TextBox Margin="5,0"
                                      BorderThickness="0"
-                                     Text="{Binding Name}"
+                                     Text="{Binding Isbn}"
                                      FontSize="20"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent" />
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,32">
-                        <TextBlock Text="Address"
+                        <TextBlock Text="Title"
                                    FontFamily="Roboto"
                                    FontSize="20"
                                    Foreground="#EEEEEE" />
@@ -79,14 +72,14 @@
                                 Height="42">
                             <TextBox Margin="5,0"
                                      BorderThickness="0"
-                                     Text="{Binding Address}"
+                                     Text="{Binding Title}"
                                      FontSize="20"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent" />
                         </Border>
                     </StackPanel>
                     <StackPanel Margin="0,0,0,32">
-                        <TextBlock Text="Email"
+                        <TextBlock Text="Description"
                                    FontFamily="Roboto"
                                    FontSize="20"
                                    Foreground="#EEEEEE" />
@@ -97,7 +90,26 @@
                                 Height="42">
                             <TextBox Margin="5,0"
                                      BorderThickness="0"
-                                     Text="{Binding Email}"
+                                     Text="{Binding Description}"
+                                     FontSize="20"
+                                     VerticalContentAlignment="Center"
+                                     Background="Transparent" />
+                        </Border>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,32">
+                        <TextBlock Text="Price"
+                                   FontFamily="Roboto"
+                                   FontSize="20"
+                                   Foreground="#EEEEEE" />
+                        <Border HorizontalAlignment="Left"
+                                CornerRadius="12"
+                                Background="#B2EDEDED"
+                                Width="261"
+                                Height="42">
+                            <TextBox Margin="5,0"
+                                     BorderThickness="0"
+                                     Text="{Binding Price}"
                                      FontSize="20"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent" />
@@ -105,33 +117,35 @@
                     </StackPanel>
                 </StackPanel>
             </Grid>
+
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
+
                 <Button Cursor="Hand"
                         BorderBrush="#C1202D"
                         BorderThickness="1"
-                        Click="Cancel"
                         FontSize="28"
                         Height="64"
                         Width="168"
                         Background="Transparent"
                         Foreground="#C1202D"
                         Content="Cancel"
-                        Style="{StaticResource StoreButton}" />
+                        Style="{StaticResource StoreButton}"
+                        Click="Cancel" />
                 <Button Cursor="Hand"
                         BorderThickness="0"
                         IsDefault="True"
-                        Click="Save"
                         FontSize="28"
                         Height="64"
                         Width="168"
                         Background="#C1202D"
                         Content="Save"
                         Style="{StaticResource StoreButton}"
-                        Grid.Column="1" />
+                        Grid.Column="1"
+                        Click="Save" />
             </Grid>
         </Grid>
     </Border>

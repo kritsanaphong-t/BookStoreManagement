@@ -108,7 +108,7 @@
                         <DataGridTextColumn Header="ISBN"
                                             IsReadOnly="True"
                                             CanUserResize="False"
-                                            Binding="{Binding ISBN}" />
+                                            Binding="{Binding Isbn}" />
                         <DataGridTextColumn Header="Title"
                                             IsReadOnly="True"
                                             CanUserResize="False"
@@ -132,7 +132,8 @@
                                                 Margin="0,0,10,0"
                                                 Width="24"
                                                 Height="24"
-                                                Cursor="Hand">
+                                                Cursor="Hand"
+                                                Click="EditBook">
                                             <iconPacks:PackIconFontAwesome Kind="PencilSolid"
                                                                            Width="24"
                                                                            Height="24"

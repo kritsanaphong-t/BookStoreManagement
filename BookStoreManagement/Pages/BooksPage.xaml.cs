@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BookStoreManagement.Model;
+using BookStoreManagement.Windows;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,27 @@ namespace BookStoreManagement.Pages
     /// </summary>
     public partial class BooksPage : Page
     {
+        public ObservableCollection<Book> Books { get; set; }
         public BooksPage()
         {
             InitializeComponent();
+            Books = new ObservableCollection<Book>(DataAccess.GetBooks());
+            bookGrid.ItemsSource = Books;
+        }
+
+        private void EditBook(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            Book book = (Book)button.DataContext;
+            EditBookWindow editBookWindow = new EditBookWindow(book);
+            bool? isEdited = editBookWindow.ShowDialog();
+            if (isEdited == true) FetchBook();
+        }
+
+        private void FetchBook()
+        {
+            Books = new ObservableCollection<Book>(DataAccess.GetBooks());
+            bookGrid.ItemsSource = Books;
         }
     }
 }
