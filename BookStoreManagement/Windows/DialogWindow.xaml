@@ -10,8 +10,8 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center"> 
             <TextBlock Text="{Binding Text}" FontFamily="Roboto" FontSize="28" Foreground="#EEEEEE" Margin="0,0,0,32" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Cursor="Hand" Margin="0,0,24,0" Click="Cancel"  BorderBrush="#C1202D" BorderThickness="2" FontFamily="Roboto" FontSize="20" Foreground="#C1202D" Background="Transparent" Height="68" Width="163" Content="Cancel" Style="{StaticResource SaveButton}"/>
-                <Button Cursor="Hand" Click="Confirm" BorderBrush="#C1202D" BorderThickness="0" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE" Background="#C1202D" Height="68" Width="163" Content="Yes" Style="{StaticResource SaveButton}" Grid.Column="1"/>
+                <Button Cursor="Hand" Margin="0,0,24,0" Click="Cancel"  BorderBrush="#C1202D" BorderThickness="2" FontFamily="Roboto" FontSize="20" Foreground="#C1202D" Background="Transparent" Height="68" Width="163" Content="Cancel" Style="{StaticResource StoreButton}"/>
+                <Button Cursor="Hand" Click="Confirm" BorderBrush="#C1202D" BorderThickness="0" FontFamily="Roboto" FontSize="20" Foreground="#EEEEEE" Background="#C1202D" Height="68" Width="163" Content="Yes" Style="{StaticResource StoreButton}" Grid.Column="1"/>
             </StackPanel>
         </StackPanel>
 

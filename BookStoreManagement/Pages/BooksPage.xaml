@@ -68,7 +68,8 @@
                                      FontSize="16"
                                      Grid.Column="1"
                                      Background="Transparent"
-                                     BorderThickness="0"/>
+                                     BorderThickness="0"
+                                     TextChanged="SearchChanged"/>
                         </Grid>
                     </Border>
                     <!-- Add Book -->

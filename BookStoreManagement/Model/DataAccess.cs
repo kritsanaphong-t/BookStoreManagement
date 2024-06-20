@@ -46,8 +46,8 @@ namespace BookStoreManagement.Model
                     "Customer_Id INTEGER, " +
                     "Quantity INTEGER, " +
                     "Total_Price DECIMAL(10, 2), " +
-                    "FOREIGN KEY (ISBN) REFERENCES Books(ISBN), " +
-                    "FOREIGN KEY (Customer_Id) REFERENCES Customers(Customer_Id))";
+                    "FOREIGN KEY (ISBN) REFERENCES Books(ISBN) ON DELETE CASCADE, " +
+                    "FOREIGN KEY (Customer_Id) REFERENCES Customers(Customer_Id) ON DELETE CASCADE)";
                 SqliteCommand createTransactionsTable = new SqliteCommand(transactionsTableCommand, db);
                 createTransactionsTable.ExecuteReader();
                 #endregion

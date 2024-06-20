@@ -172,7 +172,7 @@
             <Setter Property="BorderBrush"
                     Value="#5B5B5B" />
             <Setter Property="BorderThickness"
-                    Value="0,0,1,1" />
+                    Value="0" />
             <Setter Property="CanUserAddRows"
                     Value="False" />
             <Setter Property="CanUserReorderColumns"
@@ -184,12 +184,13 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DataGrid}">
-                        <Border Background="{TemplateBinding Background}"
+                        <Border Background="Transparent"
                                 BorderBrush="{TemplateBinding BorderBrush}"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Padding="{TemplateBinding Padding}"
                                 SnapsToDevicePixels="True"
-                                CornerRadius="4">
+                                CornerRadius="16"
+                                ClipToBounds="True">
                             <ScrollViewer x:Name="DG_ScrollViewer"
                                           Focusable="false"
                                           HorizontalScrollBarVisibility="Disabled"
@@ -274,7 +275,7 @@
             <Setter Property="BorderBrush"
                     Value="#5B5B5B" />
             <Setter Property="BorderThickness"
-                    Value="1,1,0,0" />
+                    Value="0" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -302,7 +303,7 @@
             <Setter Property="BorderBrush"
                     Value="#5B5B5B" />
             <Setter Property="BorderThickness"
-                    Value="1,1,0,0" />
+                    Value="0" />
             <Setter Property="VerticalContentAlignment"
                     Value="Center" />
             <Setter Property="HorizontalContentAlignment"

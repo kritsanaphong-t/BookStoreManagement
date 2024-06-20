@@ -52,5 +52,23 @@ namespace BookStoreManagement.Pages
             Books = new ObservableCollection<Book>(DataAccess.GetBooks());
             bookGrid.ItemsSource = Books;
         }
+
+        private void SearchChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchTxt.Text.Length > 0)
+            {
+                SearchHint.Visibility = Visibility.Hidden;
+                string isbn = SearchTxt.Text;
+                string title = SearchTxt.Text;
+                string description = SearchTxt.Text;
+                Books = new ObservableCollection<Book>(DataAccess.GetBooks(isbn, title, description));
+                bookGrid.ItemsSource = Books;
+            }
+            else
+            {
+                SearchHint.Visibility = Visibility.Visible;
+                FetchBooks();
+            }
+        }
     }
 }
