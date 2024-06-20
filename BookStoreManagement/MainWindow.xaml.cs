@@ -20,25 +20,30 @@ namespace BookStoreManagement
     public partial class MainWindow : Window
     {
         public static MainWindow? Instance;
-        private Page currentPage;
+        Stack<Page> pages = new Stack<Page>();
         public MainWindow()
         {
             InitializeComponent();
             Instance = this;
-            ChangePage(new LoginPage());
+            pages.Push(new LoginPage());
+            mainFrame.Content = pages.Peek();
         }
 
         public void ChangePage(Page page)
         {
-            CurrentPage = page;
-            MainContent.Content = currentPage.Content;
+            pages.Push(page);
+            mainFrame.Content = pages.Peek();
+        }
+
+        public void BackPage()
+        {
+            pages.Pop();
+            mainFrame.Content = pages.Peek();
         }
 
         public void Logout()
         {
             ChangePage(new LoginPage());
         }
-
-        public Page CurrentPage { get => currentPage; set => currentPage = value; }
     }
 }

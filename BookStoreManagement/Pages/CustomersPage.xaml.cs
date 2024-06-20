@@ -49,7 +49,11 @@ namespace BookStoreManagement.Pages
             Customer customer = (Customer)button.DataContext;
             DialogWindow dialogWindow = new DialogWindow("Are you sure to delete customer data?");
             bool? isDelete = dialogWindow.ShowDialog();
-            if (isDelete == true) Customers.Remove(customer);
+            if (isDelete == true)
+            {
+                DataAccess.DeleteCustomer(customer);
+                FetchCustomer();
+            }
         }
 
         private void AddCustomer(object sender, MouseButtonEventArgs e)

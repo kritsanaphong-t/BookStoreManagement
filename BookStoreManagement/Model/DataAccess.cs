@@ -94,7 +94,6 @@ namespace BookStoreManagement.Model
             return customers;
         }
 
-
         public async static void UpdateCustomer(Customer customer)
         {
             await using (SqliteConnection db =
@@ -111,6 +110,22 @@ namespace BookStoreManagement.Model
                 insertCommand.Parameters.AddWithValue("@Customer_Name", customer.Name);
                 insertCommand.Parameters.AddWithValue("@Address", customer.Address);
                 insertCommand.Parameters.AddWithValue("@Email", customer.Email);
+                insertCommand.Parameters.AddWithValue("@Customer_Id", customer.Id);
+                insertCommand.ExecuteReader();
+                db.Close();
+            }
+        }
+
+        public async static void DeleteCustomer(Customer customer)
+        {
+            await using (SqliteConnection db =
+              new SqliteConnection($"Filename=bookStoreManagement.db"))
+            {
+                db.Open();
+                SqliteCommand insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+                // Use parameterized query to prevent SQL injection attacks
+                insertCommand.CommandText = "DELETE FROM Customers WHERE Customer_Id = @Customer_Id";
                 insertCommand.Parameters.AddWithValue("@Customer_Id", customer.Id);
                 insertCommand.ExecuteReader();
                 db.Close();

@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Book Store Management" Height="1024" Width="1440" WindowStartupLocation="CenterScreen">
     <Grid Background="#121212">
-        <ContentControl x:Name="MainContent"/>
+        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

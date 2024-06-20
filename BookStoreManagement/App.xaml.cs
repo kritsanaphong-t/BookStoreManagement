@@ -10,7 +10,7 @@ namespace BookStoreManagement
     /// </summary>
     public partial class App : Application
     {
-        private void Logout(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Logout(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (MainWindow)this.MainWindow;
             DialogWindow dialogWindow = new DialogWindow("Do you want to Log out?");
@@ -19,6 +19,12 @@ namespace BookStoreManagement
             {
                 mainWindow.Logout();
             }
+        }
+
+        private void BackPage(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)this.MainWindow;
+            mainWindow.BackPage();
         }
     }
 

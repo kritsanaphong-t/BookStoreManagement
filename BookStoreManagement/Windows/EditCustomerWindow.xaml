@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookStoreManagement.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="EditCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True">
+        Title="EditCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Border CornerRadius="15" Background="#282828" MouseDown="Grid_MouseDown">
         <Grid>
             <Grid.RowDefinitions>
@@ -21,7 +21,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="Edit Customer Data" FontFamily="Roboto" FontSize="28" Foreground="#EDEDED" HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom"/>
-                <iconPacks:PackIconMaterial Kind="AccountEdit" Foreground="#EDEDED" VerticalAlignment="Bottom" Height="50" Width="50" HorizontalAlignment="Right"/>
+                <iconPacks:PackIconFontAwesome Kind="UserPenSolid" Foreground="#EDEDED" VerticalAlignment="Bottom" Height="50" Width="50" HorizontalAlignment="Right"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
