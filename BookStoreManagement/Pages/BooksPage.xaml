@@ -41,9 +41,9 @@
                         <ColumnDefinition Width="4*" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
+                        <!-- Seacrch Box -->
                     <Border Background="#D9D9D9"
                             CornerRadius="15">
-                        <!-- Seacrch Box -->
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto" />
@@ -105,7 +105,8 @@
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                           RowStyle="{DynamicResource DataGridRowStyle1}"
                           x:Name="bookGrid"
-                          AutoGenerateColumns="False">
+                          AutoGenerateColumns="False"
+                          MaxHeight="528">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ISBN"
                                             IsReadOnly="True"

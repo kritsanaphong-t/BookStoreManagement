@@ -27,7 +27,7 @@ namespace BookStoreManagement.Pages
 
         private void EnterOrderMenu(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Enter Order Menu");
+            if (MainWindow.Instance != null) MainWindow.Instance.ChangePage(new OrderPage());
         }
 
         private void EnterCustomersMenu(object sender, MouseButtonEventArgs e)

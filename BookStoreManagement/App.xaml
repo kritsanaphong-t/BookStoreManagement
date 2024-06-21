@@ -194,7 +194,7 @@
                             <ScrollViewer x:Name="DG_ScrollViewer"
                                           Focusable="false"
                                           HorizontalScrollBarVisibility="Disabled"
-                                          VerticalScrollBarVisibility="Disabled">
+                                          VerticalScrollBarVisibility="Hidden">
                                 <ScrollViewer.Template>
                                     <ControlTemplate TargetType="{x:Type ScrollViewer}">
                                         <Grid>
@@ -227,7 +227,9 @@
                                                        Grid.Row="1"
                                                        Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
                                                        ViewportSize="{TemplateBinding ViewportHeight}"
-                                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" />
+                                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                                       Foreground="Black">
+                                            </ScrollBar>
                                             <Grid Grid.Column="1"
                                                   Grid.Row="2">
                                                 <Grid.ColumnDefinitions>
