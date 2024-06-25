@@ -121,6 +121,27 @@ namespace BookStoreManagement.Model
             return customers;
         }
 
+        public static Customer GetCustomers(int id)
+        {
+            Customer customer;
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename=bookStoreManagement.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+                // Use parameterized query to prevent SQL injection attacks
+                selectCommand.CommandText = "SELECT * from Customers WHERE " +
+                    "Customer_Id = @Customer_Id";
+                selectCommand.Parameters.AddWithValue("@Customer_Id", id);
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                query.Read();
+                customer = new Customer() { Id = query.GetInt32(0), Name = query.GetString(1), Address = query.GetString(2), Email = query.GetString(3) };
+                db.Close();
+            }
+            return customer;
+        }
+
         public async static void UpdateCustomer(Customer customer)
         {
             await using (SqliteConnection db =
@@ -228,6 +249,27 @@ namespace BookStoreManagement.Model
             return books;
         }
 
+        public static Book GetBook(string isbn)
+        {
+            Book book;
+            using (SqliteConnection db =
+               new SqliteConnection($"Filename=bookStoreManagement.db"))
+            {
+                db.Open();
+                SqliteCommand selectCommand = new SqliteCommand();
+                selectCommand.Connection = db;
+                // Use parameterized query to prevent SQL injection attacks
+                selectCommand.CommandText = "SELECT * from Books WHERE " +
+                    "ISBN = @ISBN";
+                selectCommand.Parameters.AddWithValue("@ISBN", isbn);
+                SqliteDataReader query = selectCommand.ExecuteReader();
+                query.Read();
+                book = new Book() { Isbn = query.GetString(0), Title = query.GetString(1), Description = query.GetString(2), Price = query.GetFloat(3) };
+                db.Close();
+            }
+            return book;
+        }
+
         public async static void UpdateBook(Book book, string oldIsbn)
         {
             await using (SqliteConnection db =
@@ -263,6 +305,27 @@ namespace BookStoreManagement.Model
                 // Use parameterized query to prevent SQL injection attacks
                 insertCommand.CommandText = "DELETE FROM Books WHERE ISBN = @ISBN";
                 insertCommand.Parameters.AddWithValue("@ISBN", book.Isbn);
+                insertCommand.ExecuteReader();
+                db.Close();
+            }
+        }
+        #endregion
+
+        #region Transaction
+        public async static void AddTransaction(Transaction transaction)
+        {
+            await using (SqliteConnection db =
+              new SqliteConnection($"Filename=bookStoreManagement.db"))
+            {
+                db.Open();
+                SqliteCommand insertCommand = new SqliteCommand();
+                insertCommand.Connection = db;
+                // Use parameterized query to prevent SQL injection attacks
+                insertCommand.CommandText = "INSERT INTO Transactions (ISBN,Customer_Id,Quantity,Total_Price) VALUES (@ISBN,@Customer_Id, @Quantity, @Total_Price);";
+                insertCommand.Parameters.AddWithValue("@ISBN", transaction.Book.Isbn);
+                insertCommand.Parameters.AddWithValue("@Customer_Id", transaction.Customer.Id);
+                insertCommand.Parameters.AddWithValue("@Quantity", transaction.Quantity);
+                insertCommand.Parameters.AddWithValue("@Total_Price", transaction.TotalPrice);
                 insertCommand.ExecuteReader();
                 db.Close();
             }

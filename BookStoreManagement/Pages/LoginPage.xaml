@@ -110,6 +110,7 @@
                     Width="272"
                     Height="42"
                     Background="#C1202D"
+                    BorderThickness="0"
                     IsDefault="True"
                     Click="Login"
                     Cursor="Hand" />

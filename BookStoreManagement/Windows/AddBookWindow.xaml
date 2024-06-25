@@ -91,7 +91,7 @@
                                 Height="42">
                             <TextBox Margin="5,0"
                                      BorderThickness="0"
-                                     Text="{Binding Description}"
+                                     Text="{Binding Customer.Id}"
                                      FontSize="20"
                                      VerticalContentAlignment="Center"
                                      Background="Transparent" />
@@ -124,7 +124,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-
+                
+                <!-- Cancel Button -->
                 <Button Cursor="Hand"
                         BorderBrush="#C1202D"
                         BorderThickness="1"
@@ -136,6 +137,7 @@
                         Content="Cancel"
                         Style="{StaticResource StoreButton}"
                         Click="Cancel" />
+                <!-- Accept Button -->
                 <Button Cursor="Hand"
                         BorderThickness="0"
                         IsDefault="True"
