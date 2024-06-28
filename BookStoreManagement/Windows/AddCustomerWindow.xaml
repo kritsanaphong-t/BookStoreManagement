@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookStoreManagement.Windows"
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
-        Title="AddCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="Ce">
+        Title="AddCustomerWindow" Height="578" Width="420" WindowStyle="None" ResizeMode="NoResize" Background="Transparent" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Border CornerRadius="15" Background="#282828" MouseDown="Grid_MouseDown">
         <Grid>
             <Grid.RowDefinitions>
