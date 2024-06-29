@@ -55,7 +55,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Cursor="Hand" BorderBrush="#C1202D" Click="Cancel" FontSize="28" Height="64" Width="168" Background="Transparent" Foreground="#C1202D" Content="Cancel" Style="{StaticResource SaveButton}"/>
+                <Button Cursor="Hand" BorderBrush="#C1202D" Click="Cancel" FontSize="28" Height="64" Width="168" Background="Transparent" Foreground="#C1202D" Content="Cancel" Style="{StaticResource StoreButton}"/>
                 <Button Cursor="Hand" IsDefault="True" Click="Save" FontSize="28" Height="64" Width="168" Background="#C1202D" Content="Save"  Style="{StaticResource StoreButton}" Grid.Column="1"/>
             </Grid>
         </Grid>
